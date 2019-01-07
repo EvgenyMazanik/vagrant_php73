@@ -1,0 +1,21 @@
+[ req ]
+prompt = no
+distinguished_name = apache2_section
+
+[ example ]
+C = GB
+ST = Test State
+L = Test Locality
+O = Org Name
+OU = Org Unit Name
+CN = Common Name
+emailAddress = test@email.com
+
+[ apache2_section ]
+C = AU
+ST = Test State
+L = Test Locality
+O = Org Name
+OU = Org Unit Name
+CN = Common Name
+emailAddress = admin@localhost
