@@ -136,6 +136,15 @@ sudo sed -i 's#;date.timezone\([[:space:]]*\)=\([[:space:]]*\)*#date.timezone\1=
 sudo sed -i 's#display_errors = Off#display_errors = On#g' /etc/php/${PHP_VERSION}/apache2/php.ini
 sudo sed -i 's#display_startup_errors = Off#display_startup_errors = On#g' /etc/php/${PHP_VERSION}/apache2/php.ini
 sudo sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#g' /etc/php/${PHP_VERSION}/apache2/php.ini
+
+PHP_VERSION=7.3
+sudo mv /etc/php/${PHP_VERSION}/cli/php.ini /etc/php/${PHP_VERSION}/cli/php.ini.bak
+sudo cp -s /usr/lib/php/${PHP_VERSION}/php.ini-development /etc/php/${PHP_VERSION}/cli/php.ini
+sudo sed -i 's#;date.timezone\([[:space:]]*\)=\([[:space:]]*\)*#date.timezone\1=\2\"'"$timezone"'\"#g' /etc/php/${PHP_VERSION}/cli/php.ini
+sudo sed -i 's#display_errors = Off#display_errors = On#g' /etc/php/${PHP_VERSION}/cli/php.ini
+sudo sed -i 's#display_startup_errors = Off#display_startup_errors = On#g' /etc/php/${PHP_VERSION}/cli/php.ini
+sudo sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#g' /etc/php/${PHP_VERSION}/cli/php.ini
+
 sudo a2enmod php${PHP_VERSION}
 
 

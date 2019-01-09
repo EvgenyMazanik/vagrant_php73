@@ -32,4 +32,6 @@ Make directory "~/.EvgenyMazanik-vagrant" .
 Change directories for "/host" and "/config" directories for config.vm.synced_folder param.
 Add all hosts to the host file:
     192.168.111.73 phpmyadmin
+    192.168.111.73 phpmyadmin.73
     192.168.111.73 test.local
+    192.168.111.73 test.local.73
